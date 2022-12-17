@@ -8,15 +8,18 @@ export default function App() {
 
  
   const addGoalHandler = goalTitle => {
-    setCourseGoal(currentGoal => [...currentGoal, { id: Math.random().toString, value: goalTitle }]);
+    setCourseGoal(currentGoal => [
+      ...currentGoal, { id: Math.random().toString, value: goalTitle }
+    ]);
   }
 
   return (
     <View style={styles.screen}>
       <GoalInput onAddGoal={addGoalHandler}/>
 
-      <FlatList keyExtractor={(item, index) => item.id} data={courseGoals}
-       renderItem={dataItem => <GoalItem title ={dataItem.item.value}/> } 
+      <FlatList keyExtractor={(item, index) => item.id}
+       data={courseGoals}
+       renderItem={itemData => <GoalItem onDelete={()=>console.log('press delete button')} title ={itemData.item.value}/> } 
       />
     </View>
   );
