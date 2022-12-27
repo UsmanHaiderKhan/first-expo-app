@@ -8,7 +8,7 @@ const GoalItem = props =>{
       //     <Text>{props.title }</Text>
       //   </View>
       // </TouchableOpacity>
-      <TouchableNativeFeedback onPress={props.onDelete}>
+      <TouchableNativeFeedback onPress={props.onDelete.bind(this,props.id)}>
         <View style={styles.listItem}>
           <Text>{props.title }</Text>
         </View>
